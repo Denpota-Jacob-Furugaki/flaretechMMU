@@ -1,4 +1,12 @@
-"""Export every tab of every .xlsx in the project root to CSV under data/raw/<workbook>/.
+"""Export every tab of every .xlsx under src/ (or root, as fallback) to data/raw/<workbook>/.
+
+Canonical location for source workbooks is `src/`. Files in the project root are
+still picked up for backward compatibility, but if the same filename exists in
+both places, the `src/` copy wins.
+
+Skipped:
+- Excel lock files starting with `~$`
+- Duplicate-download suffixes like `... (1).xlsx`, `... (2).xlsx`
 
 Run from project root:  python scripts/export_xlsx_to_csv.py
 """
@@ -11,7 +19,10 @@ from pathlib import Path
 import openpyxl
 
 ROOT = Path(__file__).resolve().parent.parent
+SRC = ROOT / "src"
 RAW = ROOT / "data" / "raw"
+
+DUPE_SUFFIX_RE = re.compile(r" \(\d+\)$")
 
 
 def slugify(name: str) -> str:
@@ -56,14 +67,31 @@ def export_workbook(xlsx_path: Path) -> list[tuple[str, int, int]]:
     return results
 
 
+def discover() -> list[Path]:
+    """Find xlsx files to process. `src/` wins over root on name collision."""
+    seen: dict[str, Path] = {}
+    # root first, src/ second, so src/ overrides
+    for base in (ROOT, SRC):
+        if not base.exists():
+            continue
+        for xlsx in sorted(base.glob("*.xlsx")):
+            if xlsx.name.startswith("~$"):
+                continue
+            if DUPE_SUFFIX_RE.search(xlsx.stem):
+                continue
+            seen[xlsx.name] = xlsx
+    return sorted(seen.values(), key=lambda p: p.name)
+
+
 def main() -> int:
-    xlsx_files = sorted(ROOT.glob("*.xlsx"))
+    xlsx_files = discover()
     if not xlsx_files:
-        print("no .xlsx files found in", ROOT)
+        print("no .xlsx files found in", ROOT, "or", SRC)
         return 1
 
     for xlsx in xlsx_files:
-        print(f"\n== {xlsx.name} ==")
+        rel = xlsx.relative_to(ROOT)
+        print(f"\n== {rel} ==")
         for sheet_name, rows, cols in export_workbook(xlsx):
             print(f"  {sheet_name:40s}  rows={rows:5d}  cols={cols:3d}")
     return 0
