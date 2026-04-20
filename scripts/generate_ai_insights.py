@@ -33,73 +33,120 @@ OUT_JSON = ROOT / "dashboard" / "src" / "data" / "ai_insights.json"
 
 MODEL = "claude-opus-4-7"
 
-SYSTEM_PROMPT = """あなたは Flaretech（採用メディア運用部署）の専属アナリストです。経営層に向けた週次ダッシュボードの各セクションに、次の意思決定に直結する短いコメンタリーを日本語で付けます。
+SYSTEM_PROMPT = """あなたは Flaretech（採用メディア運用部署）の専属アナリストです。経営層に向けた採用マーケティング・ダッシュボードの各セクションに、次の意思決定に直結する短いコメンタリーを日本語で付けます。ダッシュボードは「数字 → 市場 → 自社診断 → 体験 → 定着」のストーリー構成です。
 
 スタイル要件:
 - 「読み手 = 経営層＋運用チームリード」。ビジネス日本語で簡潔に。
 - body は 2〜4 文、数字は原文のまま引用。
-- next_move は具体的な次の一手を 1 文。抽象的な「分析する」「検討する」は避け、誰が何をいつまでに、レベルの具体性。
-- 既知の KPI 目標：Indeed CPA ¥3,000 / 書類通過率 30%、Wantedly 中途エンジニア 週30件、YouTube 登録者 100名。
-- 見送り理由データは応募者のうち 26% しか記録が無い点を踏まえ、断定ではなく示唆として書くこと。
+- next_move は具体的な次の一手を 1 文。抽象的な「分析する」「検討する」は避け、誰が何をいつまでに、のレベルの具体性。
+- 既知の KPI 目標: Indeed CPA ¥3,000 / 書類通過率 30%、Wantedly 中途エンジニア 週30件、YouTube 登録者 100名。
+- 見送り理由データは応募者のうち 26% しか記録が無い点を踏まえ、断定ではなく示唆として書く。
+- フレームワーク系セクション（market/diagnosis/experience/retention）では、プレースホルダー値（評判バブルの競合A〜E など）を「実値」と混同しない。自社の診断値（ワナ②=high、CX応募プロセス=2/5、ブランド8カテゴリ中4つが missing、文化フィット=high risk）は実データとして扱ってよい。
+- ストーリー構成を尊重: 例えば diagnosis の body では、ワナ②と experience の文化フィット high risk が「同じ問題の別角度」であることに言及してよい。
 - 「AI による分析」であることを明記する必要はない（セクションヘッダで既に示されるため）。
 
 ファクトは入力データを超えて作らない。推論した場合は「可能性がある」「示唆される」と明示する。"""
 
-USER_TEMPLATE = """以下は Flaretech の採用メディア運用ダッシュボード（2026-04-10〜04-16 週）の生データです。4 つのセクション（kpi / trend / platforms_insight / movers）それぞれについて、body と next_move を生成してください。
+USER_TEMPLATE = """以下は Flaretech の採用マーケティング状況ダッシュボードの入力データです。8 つのセクションそれぞれについて、body と next_move を生成してください。
 
-## ダッシュボード本体（①経営サマリー）
+**数字系（現状の数字）**
+- `kpi`: ①経営サマリーの top-line KPI + WoW の解釈
+- `trend`: 週次トレンドの読み解き
+- `platforms_insight`: 媒体別 3 週比較の解釈（応募経路 × 見送り理由データも踏まえる）
+- `movers`: 今週のベスト/ワースト（応募数 WoW）の解釈
+
+**フレームワーク系（解釈軸）**
+- `market`: ② 市場の地図（2030 チャネル地図 + 評判×認知度）で、Flaretech の位置づけと今週の動きの関連
+- `diagnosis`: ③ 自社の位置づけ診断（7つのワナ + 4つの価値観スタイル + ブランドチェックリスト）で、特にワナ②「社員不在」high の影響を踏まえた視点
+- `experience`: ④ 候補者体験（CX スコアカード + 内定辞退 4 ドライバー）で、文化フィット high risk の意味合い
+- `retention`: ⑤ リテンション（企業イメージ × 5 HR 課題）で、採用広報の効き方
+
+## ①の実データ
 ```json
 {dashboard}
 ```
 
-## 応募経路 × 見送り理由（採用蓄積シート全期間、1,911 件のうち 1,440 件が理由記載あり）
+## 応募経路 × 見送り理由（採用蓄積シート 2023+、1,911 件のうち 1,440 件が理由記載あり）
 ```json
 {rejection}
 ```
+
+## フレームワーク上の Flaretech 診断値
+```json
+{frameworks_summary}
+```
 """
+
+_BLOCK = {
+    "type": "object",
+    "properties": {
+        "body": {"type": "string"},
+        "next_move": {"type": "string"},
+    },
+    "required": ["body", "next_move"],
+    "additionalProperties": False,
+}
+
+_SECTION_KEYS = [
+    "kpi",
+    "trend",
+    "platforms_insight",
+    "movers",
+    "market",
+    "diagnosis",
+    "experience",
+    "retention",
+]
 
 OUTPUT_SCHEMA = {
     "type": "object",
-    "properties": {
-        "kpi": {
-            "type": "object",
-            "properties": {
-                "body": {"type": "string"},
-                "next_move": {"type": "string"},
-            },
-            "required": ["body", "next_move"],
-            "additionalProperties": False,
-        },
-        "trend": {
-            "type": "object",
-            "properties": {
-                "body": {"type": "string"},
-                "next_move": {"type": "string"},
-            },
-            "required": ["body", "next_move"],
-            "additionalProperties": False,
-        },
-        "platforms_insight": {
-            "type": "object",
-            "properties": {
-                "body": {"type": "string"},
-                "next_move": {"type": "string"},
-            },
-            "required": ["body", "next_move"],
-            "additionalProperties": False,
-        },
-        "movers": {
-            "type": "object",
-            "properties": {
-                "body": {"type": "string"},
-                "next_move": {"type": "string"},
-            },
-            "required": ["body", "next_move"],
-            "additionalProperties": False,
-        },
-    },
-    "required": ["kpi", "trend", "platforms_insight", "movers"],
+    "properties": {k: _BLOCK for k in _SECTION_KEYS},
+    "required": _SECTION_KEYS,
     "additionalProperties": False,
+}
+
+FRAMEWORKS_SUMMARY = {
+    "pitfalls": {
+        "structure": "2 原因 × 7 ワナ。原因1=視点幅の説明不足、原因2=外部知識の欠如",
+        "flaretech_high_severity": [
+            "ワナ② 『社員不在』の採用広報 (severity: high — 元デッキで明記、優先課題)"
+        ],
+        "others_unscored": 6,
+    },
+    "channel_map_2030": {
+        "active": [
+            "求人媒体・サイト (Indeed/doda/type/エン転職/Wantedly/レバテック 等稼働中)",
+            "求人媒体+検索エンジン/ATS (HERP 連携あり)"
+        ],
+        "gap": [
+            "ダイレクトリクルーティング + RPO / AIレコメンド (2030年の主戦場、AIレコメンド型は未導入)"
+        ],
+    },
+    "reputation_vs_awareness": {
+        "self_position": "認知度 ≈ 1,500（低）· 口コミ評価 ≈ 3.2（未計測プレースホルダー）",
+        "goal": "評価 4.0 の『大きな壁』を越えて右上へ (例: 競合C スタートアップ=評価4.3、競合D 外資IT=評価4.5)",
+    },
+    "candidate_experience_scorecard": {
+        "scored": {
+            "応募プロセス": "2/5 (recruit.flaretech.co.jp は中身がほぼ空)",
+            "社内文化紹介": "2/5 (バリューは明記あるが採用広報内での言及は薄い)"
+        },
+        "unmeasured_categories": 6,
+        "average_of_measured": 2.0,
+    },
+    "offer_decline": {
+        "high_risk": [
+            "文化フィット欠如 (採用広報に現場社員の声がほぼ無く、候補者が判断材料を持てない。ワナ②と直結)"
+        ],
+        "unscored": 3,
+    },
+    "brand_checklist": {
+        "present": ["事業理解"],
+        "partial": ["企業理解", "社員/社風理解", "経営理解"],
+        "missing": ["職種理解", "キャリアパス・人事制度", "業界理解", "選考プロセス理解"],
+        "critical_gap": "8 カテゴリ中 4 が missing。特に『選考プロセス理解』の未公開は候補者の不安を残す最大領域。",
+    },
+    "retention_framework": "企業イメージが強い/弱いで 5 HR 課題（育成/配置/評価/報酬/代謝）にどう効くかの枠組み。全て unknown (評価未着手)。",
 }
 
 
@@ -144,12 +191,15 @@ def main() -> int:
     user_prompt = USER_TEMPLATE.format(
         dashboard=json.dumps(dashboard, ensure_ascii=False, indent=2),
         rejection=json.dumps(rejection, ensure_ascii=False, indent=2),
+        frameworks_summary=json.dumps(
+            FRAMEWORKS_SUMMARY, ensure_ascii=False, indent=2
+        ),
     )
 
     client = anthropic.Anthropic(api_key=api_key)
     with client.messages.stream(
         model=MODEL,
-        max_tokens=16000,
+        max_tokens=32000,
         thinking={"type": "adaptive"},
         output_config={
             "format": {

@@ -14,6 +14,10 @@ export interface AiInsights {
     trend: InsightBlock;
     platforms_insight: InsightBlock;
     movers: InsightBlock;
+    market?: InsightBlock;
+    diagnosis?: InsightBlock;
+    experience?: InsightBlock;
+    retention?: InsightBlock;
   };
 }
 
