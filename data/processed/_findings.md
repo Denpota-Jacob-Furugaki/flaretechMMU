@@ -91,6 +91,19 @@ Synthesized from week 2026-04-17 narrative + `⑤ 全媒体 費用対効果` + `
 | YouTube 登録者 | Cumulative channel subscribers | 100名 (mid-term goal) |
 | YouTube 再生時間 | Weekly total (分) | — |
 
+## Refresh workflow (weekly)
+
+When the client updates the source Google Sheets, re-run the full pipeline from the project root:
+
+1. Re-download any changed sheets as `.xlsx` into `src/` (overwrite existing).
+2. `python scripts/export_xlsx_to_csv.py` → refreshes `data/raw/`
+3. `python scripts/profile_csvs.py` → refreshes `data/processed/_profile.md`
+4. `python scripts/build_dashboard_data.py` → refreshes `dashboard/src/data/dashboard.json`
+5. `python scripts/analyze_rejection_reasons.py` → refreshes `data/processed/rejection_by_channel.json`
+6. `python scripts/generate_ai_insights.py` → refreshes `dashboard/src/data/ai_insights.json` (requires `ANTHROPIC_API_KEY` in `.env` — Claude Opus 4.7 call, a few cents per run). Skipped silently if the key is absent.
+7. Optionally: archive this run's exports as `data/snapshots/YYYY-MM-DD/` for time-series comparisons.
+8. `git add -A && git commit -m "Weekly refresh: YYYY-MM-DD" && git push` → Vercel auto-redeploys.
+
 ## Next step recommendation
 
 Move to dashboard scaffolding in a separate frontend repo (per the project's scaffold-first sequencing). This workbook folder becomes the **data source of truth**; the frontend repo will consume published summaries (not raw CSVs).
