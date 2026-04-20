@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
+import { TopNav } from "@/components/TopNav";
 import "./globals.css";
 
 const notoJp = Noto_Sans_JP({
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoJp.variable} h-full antialiased`}>
       <body className="min-h-full bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+        <TopNav />
         {children}
       </body>
     </html>

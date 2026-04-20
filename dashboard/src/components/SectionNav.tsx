@@ -62,12 +62,6 @@ export function SectionNav({ current }: { current: SectionKey }) {
             {SECTION_NUMBER[next]} {SECTION_LABELS[next]} →
           </Link>
         )}
-        <Link
-          href="/analyses"
-          className="rounded-md border border-zinc-200 bg-white px-2.5 py-1 font-medium text-zinc-700 shadow-sm hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
-        >
-          分析一覧 →
-        </Link>
       </div>
     </nav>
   );

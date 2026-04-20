@@ -32,31 +32,17 @@ export default async function Home() {
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
-      <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <div className="text-xs font-medium tracking-wider text-zinc-500">
-            Flaretech ・ メディアマーケティングユニット
-          </div>
-          <h1 className="mt-1 text-2xl font-semibold sm:text-3xl">
-            採用マーケティング ― 状況ダッシュボード
-          </h1>
-          <p className="mt-2 max-w-3xl text-sm text-zinc-600 dark:text-zinc-400">
-            Flaretech の採用マーケを「マーケティング × 顧客リテンション」の視点で整理した社内ワークスペース。
-            このホームは ① 現状の数字。下部のカードから ② 市場の地図、③ 自社診断、④ 候補者体験、⑤ リテンション、分析レポート一覧 へ。
-          </p>
+      <header className="mb-6">
+        <div className="text-xs font-medium tracking-wider text-zinc-500">
+          Flaretech ・ メディアマーケティングユニット
         </div>
-        <Link
-          href="/analyses"
-          className="inline-flex items-center gap-2 self-start rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
-        >
-          分析一覧
-          {analyses.length > 0 && (
-            <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs tabular-nums text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
-              {analyses.length}
-            </span>
-          )}
-          <span aria-hidden>→</span>
-        </Link>
+        <h1 className="mt-1 text-2xl font-semibold sm:text-3xl">
+          採用マーケティング ― 状況ダッシュボード
+        </h1>
+        <p className="mt-2 max-w-3xl text-sm text-zinc-600 dark:text-zinc-400">
+          Flaretech の採用マーケを「マーケティング × 顧客リテンション」の視点で整理した社内ワークスペース。
+          このホームは ① 現状の数字。上部ナビまたは下部カードから ② 市場の地図、③ 自社診断、④ 候補者体験、⑤ リテンション、分析レポート一覧 へ。
+        </p>
       </header>
 
       {/* ═══════════════════════════════════════════════════════════════════
