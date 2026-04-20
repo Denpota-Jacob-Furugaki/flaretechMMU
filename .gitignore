@@ -1,4 +1,7 @@
 *.xlsx
+*.pdf
+*.pptx
+*.docx
 data/raw/
 data/snapshots/
 __pycache__/
