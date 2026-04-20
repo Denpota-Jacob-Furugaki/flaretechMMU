@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC_CSV = ROOT / "data" / "raw" / "採用蓄積シート" / "応募者管理シート.csv"
 OUT_JSON = ROOT / "data" / "processed" / "rejection_by_channel.json"
+DASHBOARD_JSON = ROOT / "dashboard" / "src" / "data" / "channel_quality.json"
 
 COL_CHANNEL = 0
 COL_ROLE_BUCKET = 2  # エンジニアor営業
@@ -106,6 +107,8 @@ def main() -> int:
         lambda: {"applied": 0, "doc_pass": 0, "iv1_pass": 0, "iv2_pass": 0,
                  "offer": 0, "accept": 0, "reasoned": 0}
     )
+    channel_first_date: dict[str, datetime] = {}
+    channel_last_date: dict[str, datetime] = {}
     for r in apps:
         ch = r[COL_CHANNEL].strip()
         f = funnel[ch]
@@ -122,6 +125,12 @@ def main() -> int:
             f["accept"] += 1
         if normalize_reason(r[COL_REASON] if len(r) > COL_REASON else ""):
             f["reasoned"] += 1
+        d = parse_date(r[COL_DATE] if len(r) > COL_DATE else "")
+        if d is not None:
+            if ch not in channel_first_date or d < channel_first_date[ch]:
+                channel_first_date[ch] = d
+            if ch not in channel_last_date or d > channel_last_date[ch]:
+                channel_last_date[ch] = d
 
     channels_by_volume = sorted(funnel.items(), key=lambda kv: -kv[1]["applied"])
 
@@ -197,6 +206,10 @@ def main() -> int:
                 "iv1_pass_rate": f["iv1_pass"] / f["applied"] if f["applied"] else None,
                 "offer_rate": f["offer"] / f["applied"] if f["applied"] else None,
                 "accept_rate": f["accept"] / f["applied"] if f["applied"] else None,
+                "first_date": channel_first_date[ch].strftime("%Y-%m-%d")
+                    if ch in channel_first_date else None,
+                "last_date": channel_last_date[ch].strftime("%Y-%m-%d")
+                    if ch in channel_last_date else None,
                 "top_reasons": [
                     {"reason": reason, "count": n}
                     for reason, n in channel_reasons.get(ch, Counter()).most_common(5)
@@ -213,6 +226,19 @@ def main() -> int:
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(f"wrote {OUT_JSON}")
+
+    # Mirror a dashboard-friendly subset for import by the Next.js app.
+    dashboard_payload = {
+        "generated_at": payload.get("since") or "all",
+        "applicants": payload["applicants"],
+        "channels": payload["channels"],
+    }
+    DASHBOARD_JSON.parent.mkdir(parents=True, exist_ok=True)
+    DASHBOARD_JSON.write_text(
+        json.dumps(dashboard_payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"wrote {DASHBOARD_JSON}")
     return 0
 
 

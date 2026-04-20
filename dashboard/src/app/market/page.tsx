@@ -7,10 +7,15 @@ import { ChannelMap2030 } from "@/components/ChannelMap2030";
 import { AiInsight } from "@/components/AiInsight";
 import { RelatedAnalyses } from "@/components/RelatedAnalyses";
 import {
+  ChannelQuality,
+  ChannelQualityRow,
+} from "@/components/ChannelQuality";
+import {
   recruitmentChannels2030,
   reputationCompanies,
 } from "@/data/frameworks";
 import { loadAiInsights } from "@/lib/ai-insights";
+import channelQualityData from "@/data/channel_quality.json";
 
 export const metadata = {
   title: "② 市場の地図 | Flaretech 採用ダッシュボード",
@@ -40,12 +45,24 @@ export default async function MarketPage() {
         </Panel>
       </section>
 
-      <section className="mb-6">
+      <section className="mb-4">
         <Panel
           title="2030年の採用チャネル地図 ― Recruitment channel landscape toward 2030"
           subtitle="採用チャネルを Traditional / Tech-augmented (検索エンジン + ATS強化) / Emerging (ダイレクト・マッチング新興) の 3 層に分類。各チャネルで Flaretech が active (使えている) / gap (使えていない) / not-applicable のどれか。2030年に向けた投資判断のベース。"
         >
           <ChannelMap2030 channels={recruitmentChannels2030} />
+        </Panel>
+      </section>
+
+      <section className="mb-6">
+        <Panel
+          title="チャネル別 品質ランキング ― Quality by channel (全履歴)"
+          subtitle="採用蓄積シート 2023 年以降の全履歴から、各チャネルの量 (応募数) と質 (書類通過率 / 1次通過率 / 内定率 / 承諾率) を横並びで比較。列ヘッダーをクリックで並べ替え。初回応募日 / 直近応募日で稼働期間もわかる。"
+        >
+          <ChannelQuality
+            channels={channelQualityData.channels as ChannelQualityRow[]}
+            totalApplicants={channelQualityData.applicants}
+          />
         </Panel>
         <AiInsight insight={insight} />
       </section>
