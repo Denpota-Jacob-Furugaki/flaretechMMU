@@ -323,6 +323,830 @@
       "offers": 0.0
     }
   ],
+  "weeklyLong": [
+    {
+      "weekStart": "2022-12-26",
+      "applications": 173,
+      "passRate": 0.4161849710982659,
+      "offers": 16
+    },
+    {
+      "weekStart": "2023-01-30",
+      "applications": 190,
+      "passRate": 0.45789473684210524,
+      "offers": 23
+    },
+    {
+      "weekStart": "2023-02-27",
+      "applications": 180,
+      "passRate": 0.43333333333333335,
+      "offers": 33
+    },
+    {
+      "weekStart": "2023-03-27",
+      "applications": 146,
+      "passRate": 0.5342465753424658,
+      "offers": 29
+    },
+    {
+      "weekStart": "2023-05-01",
+      "applications": 199,
+      "passRate": 0.37185929648241206,
+      "offers": 20
+    },
+    {
+      "weekStart": "2023-05-08",
+      "applications": 1,
+      "passRate": 1.0,
+      "offers": 1
+    },
+    {
+      "weekStart": "2023-05-29",
+      "applications": 214,
+      "passRate": 0.2803738317757009,
+      "offers": 28
+    },
+    {
+      "weekStart": "2023-06-26",
+      "applications": 109,
+      "passRate": 0.3577981651376147,
+      "offers": 16
+    },
+    {
+      "weekStart": "2023-07-31",
+      "applications": 101,
+      "passRate": 0.3564356435643564,
+      "offers": 8
+    },
+    {
+      "weekStart": "2023-08-28",
+      "applications": 137,
+      "passRate": 0.3795620437956204,
+      "offers": 16
+    },
+    {
+      "weekStart": "2023-09-25",
+      "applications": 192,
+      "passRate": 0.4427083333333333,
+      "offers": 8
+    },
+    {
+      "weekStart": "2023-10-23",
+      "applications": 1,
+      "passRate": 1.0,
+      "offers": 1
+    },
+    {
+      "weekStart": "2023-10-30",
+      "applications": 185,
+      "passRate": 0.2810810810810811,
+      "offers": 22
+    },
+    {
+      "weekStart": "2023-11-27",
+      "applications": 129,
+      "passRate": 0.35658914728682173,
+      "offers": 9
+    },
+    {
+      "weekStart": "2023-12-04",
+      "applications": 11,
+      "passRate": 0.9090909090909091,
+      "offers": 0
+    },
+    {
+      "weekStart": "2023-12-11",
+      "applications": 11,
+      "passRate": 1.0,
+      "offers": 1
+    },
+    {
+      "weekStart": "2023-12-18",
+      "applications": 7,
+      "passRate": 0.8571428571428571,
+      "offers": 2
+    },
+    {
+      "weekStart": "2023-12-25",
+      "applications": 11,
+      "passRate": 0.8181818181818182,
+      "offers": 3
+    },
+    {
+      "weekStart": "2024-01-08",
+      "applications": 2,
+      "passRate": 0.5,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-01-15",
+      "applications": 22,
+      "passRate": 0.7272727272727273,
+      "offers": 5
+    },
+    {
+      "weekStart": "2024-01-22",
+      "applications": 11,
+      "passRate": 0.9090909090909091,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-01-29",
+      "applications": 10,
+      "passRate": 1.0,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-02-05",
+      "applications": 7,
+      "passRate": 0.7142857142857143,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-02-12",
+      "applications": 16,
+      "passRate": 0.375,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-02-19",
+      "applications": 11,
+      "passRate": 0.36363636363636365,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-02-26",
+      "applications": 17,
+      "passRate": 0.29411764705882354,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-03-04",
+      "applications": 13,
+      "passRate": 0.46153846153846156,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-03-11",
+      "applications": 17,
+      "passRate": 0.4117647058823529,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-03-18",
+      "applications": 21,
+      "passRate": 0.23809523809523808,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-03-25",
+      "applications": 24,
+      "passRate": 0.5833333333333334,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-04-01",
+      "applications": 16,
+      "passRate": 0.375,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-04-08",
+      "applications": 18,
+      "passRate": 0.2777777777777778,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-04-15",
+      "applications": 26,
+      "passRate": 0.46153846153846156,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-04-22",
+      "applications": 21,
+      "passRate": 0.5238095238095238,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-04-29",
+      "applications": 9,
+      "passRate": 0.3333333333333333,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-05-06",
+      "applications": 16,
+      "passRate": 0.25,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-05-13",
+      "applications": 6,
+      "passRate": 0.3333333333333333,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-05-20",
+      "applications": 15,
+      "passRate": 0.2,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-05-27",
+      "applications": 22,
+      "passRate": 0.45454545454545453,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-06-03",
+      "applications": 19,
+      "passRate": 0.3684210526315789,
+      "offers": 3
+    },
+    {
+      "weekStart": "2024-06-10",
+      "applications": 17,
+      "passRate": 0.11764705882352941,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-06-17",
+      "applications": 14,
+      "passRate": 0.2857142857142857,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-06-24",
+      "applications": 15,
+      "passRate": 0.3333333333333333,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-07-01",
+      "applications": 18,
+      "passRate": 0.2777777777777778,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-07-08",
+      "applications": 14,
+      "passRate": 0.5,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-07-15",
+      "applications": 9,
+      "passRate": 0.5555555555555556,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-07-22",
+      "applications": 26,
+      "passRate": 0.46153846153846156,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-07-29",
+      "applications": 30,
+      "passRate": 0.6,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-08-05",
+      "applications": 24,
+      "passRate": 0.75,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-08-12",
+      "applications": 30,
+      "passRate": 0.43333333333333335,
+      "offers": 3
+    },
+    {
+      "weekStart": "2024-08-19",
+      "applications": 28,
+      "passRate": 0.6071428571428571,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-08-26",
+      "applications": 28,
+      "passRate": 0.5714285714285714,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-09-02",
+      "applications": 26,
+      "passRate": 0.6538461538461539,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-09-09",
+      "applications": 28,
+      "passRate": 0.5357142857142857,
+      "offers": 7
+    },
+    {
+      "weekStart": "2024-09-16",
+      "applications": 35,
+      "passRate": 0.6,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-09-23",
+      "applications": 21,
+      "passRate": 0.6190476190476191,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-09-30",
+      "applications": 29,
+      "passRate": 0.5172413793103449,
+      "offers": 3
+    },
+    {
+      "weekStart": "2024-10-07",
+      "applications": 28,
+      "passRate": 0.5,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-10-14",
+      "applications": 17,
+      "passRate": 0.47058823529411764,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-10-21",
+      "applications": 25,
+      "passRate": 0.56,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-10-28",
+      "applications": 20,
+      "passRate": 0.75,
+      "offers": 3
+    },
+    {
+      "weekStart": "2024-11-04",
+      "applications": 21,
+      "passRate": 0.42857142857142855,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-11-11",
+      "applications": 24,
+      "passRate": 0.625,
+      "offers": 5
+    },
+    {
+      "weekStart": "2024-11-18",
+      "applications": 47,
+      "passRate": 0.3191489361702128,
+      "offers": 2
+    },
+    {
+      "weekStart": "2024-11-25",
+      "applications": 48,
+      "passRate": 0.5833333333333334,
+      "offers": 1
+    },
+    {
+      "weekStart": "2024-12-02",
+      "applications": 24,
+      "passRate": 0.8333333333333334,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-12-09",
+      "applications": 35,
+      "passRate": 0.4857142857142857,
+      "offers": 0
+    },
+    {
+      "weekStart": "2024-12-16",
+      "applications": 39,
+      "passRate": 0.6410256410256411,
+      "offers": 4
+    },
+    {
+      "weekStart": "2024-12-23",
+      "applications": 28,
+      "passRate": 0.5714285714285714,
+      "offers": 3
+    },
+    {
+      "weekStart": "2024-12-30",
+      "applications": 13,
+      "passRate": 0.6923076923076923,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-01-06",
+      "applications": 33,
+      "passRate": 0.5454545454545454,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-01-13",
+      "applications": 12,
+      "passRate": 0.3333333333333333,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-01-20",
+      "applications": 30,
+      "passRate": 0.2,
+      "offers": 0
+    },
+    {
+      "weekStart": "2025-01-27",
+      "applications": 46,
+      "passRate": 0.3695652173913043,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-02-03",
+      "applications": 44,
+      "passRate": 0.38636363636363635,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-02-10",
+      "applications": 42,
+      "passRate": 0.4523809523809524,
+      "offers": 6
+    },
+    {
+      "weekStart": "2025-02-17",
+      "applications": 36,
+      "passRate": 0.5277777777777778,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-02-24",
+      "applications": 41,
+      "passRate": 0.3170731707317073,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-03-03",
+      "applications": 49,
+      "passRate": 0.3673469387755102,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-03-10",
+      "applications": 55,
+      "passRate": 0.36363636363636365,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-03-17",
+      "applications": 34,
+      "passRate": 0.4411764705882353,
+      "offers": 7
+    },
+    {
+      "weekStart": "2025-03-24",
+      "applications": 41,
+      "passRate": 0.4634146341463415,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-03-31",
+      "applications": 38,
+      "passRate": 0.2894736842105263,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-04-07",
+      "applications": 32,
+      "passRate": 0.40625,
+      "offers": 0
+    },
+    {
+      "weekStart": "2025-04-14",
+      "applications": 33,
+      "passRate": 0.36363636363636365,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-04-21",
+      "applications": 52,
+      "passRate": 0.4230769230769231,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-04-28",
+      "applications": 23,
+      "passRate": 0.4782608695652174,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-05-05",
+      "applications": 33,
+      "passRate": 0.42424242424242425,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-05-12",
+      "applications": 35,
+      "passRate": 0.34285714285714286,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-05-19",
+      "applications": 31,
+      "passRate": 0.3225806451612903,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-05-26",
+      "applications": 32,
+      "passRate": 0.25,
+      "offers": 0
+    },
+    {
+      "weekStart": "2025-06-02",
+      "applications": 16,
+      "passRate": 0.5625,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-06-09",
+      "applications": 30,
+      "passRate": 0.5666666666666667,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-06-16",
+      "applications": 33,
+      "passRate": 0.3939393939393939,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-06-23",
+      "applications": 32,
+      "passRate": 0.59375,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-06-30",
+      "applications": 29,
+      "passRate": 0.41379310344827586,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-07-07",
+      "applications": 38,
+      "passRate": 0.3684210526315789,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-07-14",
+      "applications": 32,
+      "passRate": 0.4375,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-07-21",
+      "applications": 24,
+      "passRate": 0.5,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-07-28",
+      "applications": 29,
+      "passRate": 0.6551724137931034,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-08-04",
+      "applications": 36,
+      "passRate": 0.6388888888888888,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-08-11",
+      "applications": 16,
+      "passRate": 0.3125,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-08-18",
+      "applications": 28,
+      "passRate": 0.42857142857142855,
+      "offers": 0
+    },
+    {
+      "weekStart": "2025-08-25",
+      "applications": 30,
+      "passRate": 0.7333333333333333,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-09-01",
+      "applications": 29,
+      "passRate": 0.6206896551724138,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-09-08",
+      "applications": 38,
+      "passRate": 0.42105263157894735,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-09-15",
+      "applications": 27,
+      "passRate": 0.5925925925925926,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-09-22",
+      "applications": 28,
+      "passRate": 0.5714285714285714,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-09-29",
+      "applications": 28,
+      "passRate": 0.42857142857142855,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-10-06",
+      "applications": 21,
+      "passRate": 0.38095238095238093,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-10-13",
+      "applications": 30,
+      "passRate": 0.5666666666666667,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-10-20",
+      "applications": 21,
+      "passRate": 0.47619047619047616,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-10-27",
+      "applications": 22,
+      "passRate": 0.7727272727272727,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-11-03",
+      "applications": 25,
+      "passRate": 0.32,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-11-10",
+      "applications": 25,
+      "passRate": 0.64,
+      "offers": 6
+    },
+    {
+      "weekStart": "2025-11-17",
+      "applications": 27,
+      "passRate": 0.2222222222222222,
+      "offers": 0
+    },
+    {
+      "weekStart": "2025-11-24",
+      "applications": 23,
+      "passRate": 0.6521739130434783,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-12-01",
+      "applications": 18,
+      "passRate": 0.5,
+      "offers": 2
+    },
+    {
+      "weekStart": "2025-12-08",
+      "applications": 30,
+      "passRate": 0.5,
+      "offers": 4
+    },
+    {
+      "weekStart": "2025-12-15",
+      "applications": 36,
+      "passRate": 0.6111111111111112,
+      "offers": 3
+    },
+    {
+      "weekStart": "2025-12-22",
+      "applications": 27,
+      "passRate": 0.4074074074074074,
+      "offers": 1
+    },
+    {
+      "weekStart": "2025-12-29",
+      "applications": 8,
+      "passRate": 0.5,
+      "offers": 1
+    },
+    {
+      "weekStart": "2026-01-05",
+      "applications": 37,
+      "passRate": 0.6216216216216216,
+      "offers": 2
+    },
+    {
+      "weekStart": "2026-01-12",
+      "applications": 44,
+      "passRate": 0.5,
+      "offers": 7
+    },
+    {
+      "weekStart": "2026-01-19",
+      "applications": 44,
+      "passRate": 0.4318181818181818,
+      "offers": 3
+    },
+    {
+      "weekStart": "2026-01-26",
+      "applications": 42,
+      "passRate": 0.3333333333333333,
+      "offers": 3
+    },
+    {
+      "weekStart": "2026-02-02",
+      "applications": 32,
+      "passRate": 0.59375,
+      "offers": 5
+    },
+    {
+      "weekStart": "2026-02-09",
+      "applications": 56,
+      "passRate": 0.21428571428571427,
+      "offers": 3
+    },
+    {
+      "weekStart": "2026-02-16",
+      "applications": 53,
+      "passRate": 0.41509433962264153,
+      "offers": 3
+    },
+    {
+      "weekStart": "2026-02-23",
+      "applications": 59,
+      "passRate": 0.5423728813559322,
+      "offers": 7
+    },
+    {
+      "weekStart": "2026-03-02",
+      "applications": 82,
+      "passRate": 0.4268292682926829,
+      "offers": 3
+    },
+    {
+      "weekStart": "2026-03-09",
+      "applications": 110,
+      "passRate": 0.22727272727272727,
+      "offers": 4
+    },
+    {
+      "weekStart": "2026-03-16",
+      "applications": 58,
+      "passRate": 0.25862068965517243,
+      "offers": 0
+    },
+    {
+      "weekStart": "2026-03-23",
+      "applications": 64,
+      "passRate": 0.203125,
+      "offers": 0
+    },
+    {
+      "weekStart": "2026-03-30",
+      "applications": 71,
+      "passRate": 0.36619718309859156,
+      "offers": 0
+    },
+    {
+      "weekStart": "2026-04-06",
+      "applications": 89,
+      "passRate": 0.3707865168539326,
+      "offers": 0
+    },
+    {
+      "weekStart": "2026-04-13",
+      "applications": 79,
+      "passRate": 0.2911392405063291,
+      "offers": 0
+    }
+  ],
   "best": [
     {
       "name": "doda",

@@ -22,10 +22,13 @@ from __future__ import annotations
 import csv
 import json
 import re
+from collections import defaultdict
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC_CSV = ROOT / "data" / "raw" / "メディアマーケティングユニット（MMU）" / "①_経営サマリー（WoW）.csv"
+APPLICANT_CSV = ROOT / "data" / "raw" / "採用蓄積シート" / "応募者管理シート.csv"
 OUT_JSON = ROOT / "dashboard" / "src" / "data" / "dashboard.json"
 
 
@@ -70,6 +73,70 @@ def parse_num(s: str) -> float | None:
 
 def get(row: list[str], col: int) -> str:
     return row[col] if col < len(row) else ""
+
+
+_DATE_RE = re.compile(r"^\s*(\d{4})[-/](\d{1,2})[-/](\d{1,2})")
+
+
+def _parse_applicant_date(s: str) -> datetime | None:
+    m = _DATE_RE.match(s)
+    if not m:
+        return None
+    try:
+        return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return None
+
+
+def _truthy_applicant(cell: str) -> bool:
+    s = (cell or "").strip()
+    if not s:
+        return False
+    neg = ("×", "✕", "NG", "辞退", "見送", "音信不通")
+    return not any(token in s for token in neg)
+
+
+def build_weekly_long() -> list[dict] | None:
+    """Aggregate 応募者管理シート by ISO week (Monday-starting). Returns list
+    of {weekStart, applications, passRate, offers} sorted oldest first, or
+    None if the source CSV isn't present.
+
+    Columns used: 応募日 (col 6), 書類選考通過 (col 7), 内定 (col 27).
+    Header is at row index 2; data starts at row index 3.
+    """
+    if not APPLICANT_CSV.exists():
+        return None
+    with APPLICANT_CSV.open("r", encoding="utf-8-sig") as f:
+        rows = list(csv.reader(f))
+
+    buckets: dict[str, dict[str, int]] = defaultdict(
+        lambda: {"applications": 0, "docPass": 0, "offers": 0}
+    )
+    for r in rows[3:]:
+        date = _parse_applicant_date(get(r, 6))
+        if date is None:
+            continue
+        week_start = (date - timedelta(days=date.weekday())).strftime("%Y-%m-%d")
+        b = buckets[week_start]
+        b["applications"] += 1
+        if _truthy_applicant(get(r, 7)):
+            b["docPass"] += 1
+        if _truthy_applicant(get(r, 27)):
+            b["offers"] += 1
+
+    out: list[dict] = []
+    for key in sorted(buckets.keys()):
+        v = buckets[key]
+        n = v["applications"]
+        out.append(
+            {
+                "weekStart": key,
+                "applications": n,
+                "passRate": (v["docPass"] / n) if n > 0 else None,
+                "offers": v["offers"],
+            }
+        )
+    return out
 
 
 def build() -> dict:
@@ -157,6 +224,8 @@ def build() -> dict:
                 "delta": parse_delta(get(row, 9)),
             })
 
+    weekly_long = build_weekly_long()
+
     return {
         "title": title,
         "period": period,
@@ -164,6 +233,7 @@ def build() -> dict:
         "platforms": platforms,
         "total": total,
         "weekly": weekly,
+        "weeklyLong": weekly_long,
         "best": best,
         "worst": worst,
         "sourceFile": "①_経営サマリー（WoW）.csv",
@@ -178,10 +248,12 @@ def main() -> int:
         encoding="utf-8",
     )
     print(f"wrote {OUT_JSON}")
+    long_len = len(data["weeklyLong"]) if data["weeklyLong"] else 0
     print(
         f"  kpis={len(data['kpis'])} "
         f"platforms={len(data['platforms'])} "
         f"weekly={len(data['weekly'])} "
+        f"weeklyLong={long_len} "
         f"best={len(data['best'])} "
         f"worst={len(data['worst'])}"
     )

@@ -75,7 +75,7 @@ export default async function Home() {
       </section>
 
       <section className="mb-4">
-        <WeeklyTrend data={d.weekly} />
+        <WeeklyTrend data={d.weekly} dataLong={d.weeklyLong} />
         <AiInsight insight={insights?.trend} />
       </section>
 

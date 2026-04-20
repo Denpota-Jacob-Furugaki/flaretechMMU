@@ -28,6 +28,13 @@ export interface WeeklyPoint {
   offers: number | null;
 }
 
+export interface WeeklyPointLong {
+  weekStart: string; // ISO date "YYYY-MM-DD", Monday-starting
+  applications: number;
+  passRate: number | null;
+  offers: number;
+}
+
 export interface Mover {
   name: string;
   current: number | null;
@@ -42,6 +49,7 @@ export interface DashboardData {
   platforms: Platform[];
   total: Platform | null;
   weekly: WeeklyPoint[];
+  weeklyLong?: WeeklyPointLong[];
   best: Mover[];
   worst: Mover[];
   sourceFile: string;
