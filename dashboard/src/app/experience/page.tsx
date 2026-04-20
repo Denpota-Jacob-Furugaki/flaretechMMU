@@ -1,4 +1,5 @@
 import { SectionNav } from "@/components/SectionNav";
+import { MissionRibbon } from "@/components/MissionRibbon";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Panel } from "@/components/Panel";
 import { CandidateExperience } from "@/components/CandidateExperience";
@@ -22,6 +23,7 @@ export default async function ExperiencePage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
       <SectionNav current="experience" />
+      <MissionRibbon />
 
       <SectionHeading
         step="④ 候補者体験とクロージング"

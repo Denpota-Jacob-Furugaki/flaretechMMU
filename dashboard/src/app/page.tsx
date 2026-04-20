@@ -1,4 +1,3 @@
-import Link from "next/link";
 import data from "@/data/dashboard.json";
 import { DashboardData } from "@/lib/types";
 import { KpiCard } from "@/components/KpiCard";
@@ -10,6 +9,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Panel } from "@/components/Panel";
 import { HiringStrategy } from "@/components/HiringStrategy";
 import { SectionCard } from "@/components/SectionCard";
+import { MissionHero } from "@/components/MissionHero";
 import { listAnalyses } from "@/lib/analyses";
 import { loadAiInsights } from "@/lib/ai-insights";
 import {
@@ -44,6 +44,11 @@ export default async function Home() {
           このホームは ① 現状の数字。上部ナビまたは下部カードから ② 市場の地図、③ 自社診断、④ 候補者体験、⑤ リテンション、分析レポート一覧 へ。
         </p>
       </header>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          Mission (クライアントから受け取ったブリーフ)
+          ═══════════════════════════════════════════════════════════════ */}
+      <MissionHero />
 
       {/* ═══════════════════════════════════════════════════════════════════
           ① 現状の数字

@@ -1,4 +1,5 @@
 import { SectionNav } from "@/components/SectionNav";
+import { MissionRibbon } from "@/components/MissionRibbon";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Panel } from "@/components/Panel";
 import { PitfallsFramework } from "@/components/PitfallsFramework";
@@ -24,6 +25,7 @@ export default async function DiagnosisPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
       <SectionNav current="diagnosis" />
+      <MissionRibbon />
 
       <SectionHeading
         step="③ 自社の位置づけ診断"

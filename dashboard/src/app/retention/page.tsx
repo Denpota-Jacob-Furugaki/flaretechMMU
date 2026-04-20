@@ -1,4 +1,5 @@
 import { SectionNav } from "@/components/SectionNav";
+import { MissionRibbon } from "@/components/MissionRibbon";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Panel } from "@/components/Panel";
 import { RetentionFramework } from "@/components/RetentionFramework";
@@ -18,6 +19,7 @@ export default async function RetentionPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
       <SectionNav current="retention" />
+      <MissionRibbon />
 
       <SectionHeading
         step="⑤ リテンションの視点"

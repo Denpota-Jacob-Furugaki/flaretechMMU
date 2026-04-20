@@ -1,4 +1,5 @@
 import { SectionNav } from "@/components/SectionNav";
+import { MissionRibbon } from "@/components/MissionRibbon";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Panel } from "@/components/Panel";
 import { ReputationBubble } from "@/components/ReputationBubble";
@@ -22,6 +23,7 @@ export default async function MarketPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
       <SectionNav current="market" />
+      <MissionRibbon />
 
       <SectionHeading
         step="② 市場の地図"
