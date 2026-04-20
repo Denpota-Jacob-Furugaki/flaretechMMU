@@ -12,9 +12,9 @@ export default async function AnalysesIndex() {
             ← ダッシュボード
           </Link>
         </div>
-        <h1 className="mt-2 text-2xl font-semibold sm:text-3xl">分析 (Analyses)</h1>
+        <h1 className="mt-2 text-2xl font-semibold sm:text-3xl">分析レポート</h1>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Dated deep-dives into the recruitment data. Each writeup is a standalone answer to a specific question.
+          日付ごとの詳細分析。各レポートは、特定の問いに対する独立した回答として作成されています。
         </p>
       </header>
 

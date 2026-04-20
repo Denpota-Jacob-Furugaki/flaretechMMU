@@ -16,14 +16,15 @@ function extractTitle(md: string): string {
 }
 
 function extractDate(md: string): string | null {
-  const m = md.match(/\*\*Date:\*\*\s*(\S+)/);
+  // Accepts either `**日付:**` or `**Date:**` followed by a YYYY-MM-DD.
+  const m = md.match(/\*\*(?:日付|Date)[:：]\*\*\s*(\S+)/);
   return m ? m[1].trim() : null;
 }
 
 function extractSummary(md: string): string | null {
-  // First paragraph under "## Question" (one level deep) — otherwise fall back
-  // to the first body paragraph that isn't metadata.
-  const q = md.match(/##\s*Question\s*\n\n([^\n][\s\S]*?)(?:\n\n|$)/);
+  // First paragraph under the first `##` heading (typically 問い / Question /
+  // 概要). Falls back to null if not found.
+  const q = md.match(/^##\s+.+\n+([^\n#][\s\S]*?)(?:\n\n|$)/m);
   if (q) return q[1].replace(/\s+/g, " ").trim();
   return null;
 }

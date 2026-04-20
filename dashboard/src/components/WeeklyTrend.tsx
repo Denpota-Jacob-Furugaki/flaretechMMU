@@ -39,10 +39,10 @@ export function WeeklyTrend({ data }: { data: WeeklyPoint[] }) {
   return (
     <div className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
       <div className="mb-3 flex items-baseline justify-between">
-        <h3 className="text-sm font-semibold">週次トレンド — 総応募数</h3>
+        <h3 className="text-sm font-semibold">週次トレンド ― 総応募数</h3>
         <div className="text-xs text-zinc-500">
-          {data.length}週 · 最新 {data[data.length - 1].week} /{" "}
-          {fmtNumber(data[data.length - 1].applications)}件
+          直近 {data.length} 週間 ・ 最新週 {data[data.length - 1].week}：
+          {fmtNumber(data[data.length - 1].applications)} 件
         </div>
       </div>
       <svg
@@ -50,7 +50,7 @@ export function WeeklyTrend({ data }: { data: WeeklyPoint[] }) {
         className="h-60 w-full"
         preserveAspectRatio="none"
         role="img"
-        aria-label="weekly applications trend"
+        aria-label="週次 応募数 トレンド"
       >
         {tickValues.map((t, i) => (
           <g key={i}>

@@ -10,7 +10,7 @@ const notoJp = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: "Flaretech 採用ダッシュボード",
-  description: "経営向け 週次サマリー (WoW)",
+  description: "経営向け 週次サマリー（前週比）",
 };
 
 export default function RootLayout({

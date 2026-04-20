@@ -16,11 +16,11 @@ export default async function Home() {
     <main className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
       <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <div className="text-xs font-medium uppercase tracking-wider text-zinc-500">
-            Flaretech · Media Marketing Unit
+          <div className="text-xs font-medium tracking-wider text-zinc-500">
+            Flaretech ・ メディアマーケティングユニット
           </div>
           <h1 className="mt-1 text-2xl font-semibold sm:text-3xl">
-            経営向け 週次サマリー (WoW)
+            経営向け 週次サマリー（前週比）
           </h1>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
             {d.period}
@@ -78,9 +78,9 @@ export default async function Home() {
       </section>
 
       <footer className="border-t border-zinc-200 pt-6 text-xs text-zinc-500 dark:border-zinc-800">
-        Source: <code className="rounded bg-zinc-100 px-1.5 py-0.5 dark:bg-zinc-800">{d.sourceFile}</code>
-        {" · "}
-        Static snapshot — rebuild to refresh.
+        出典： <code className="rounded bg-zinc-100 px-1.5 py-0.5 dark:bg-zinc-800">{d.sourceFile}</code>
+        {" ・ "}
+        静的スナップショット（最新化にはデータ取り込み＋再デプロイが必要）
       </footer>
     </main>
   );
