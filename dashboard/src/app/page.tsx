@@ -9,33 +9,25 @@ import { AiInsight } from "@/components/AiInsight";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Panel } from "@/components/Panel";
 import { HiringStrategy } from "@/components/HiringStrategy";
-import { ChannelMap2030 } from "@/components/ChannelMap2030";
-import { ReputationBubble } from "@/components/ReputationBubble";
-import { PitfallsFramework } from "@/components/PitfallsFramework";
-import { ValueStyles } from "@/components/ValueStyles";
-import { BrandChecklist } from "@/components/BrandChecklist";
-import { CandidateExperience } from "@/components/CandidateExperience";
-import { OfferDecline } from "@/components/OfferDecline";
-import { RetentionFramework } from "@/components/RetentionFramework";
+import { SectionCard } from "@/components/SectionCard";
 import { listAnalyses } from "@/lib/analyses";
 import { loadAiInsights } from "@/lib/ai-insights";
 import {
-  brandChecklist,
-  candidateExperience,
   hiringFunnelStages,
   hiringStrategyPhases,
-  offerDeclineReasons,
-  pitfallCauses,
-  recruitmentChannels2030,
-  reputationCompanies,
-  retentionChallenges,
-  valueStyles,
 } from "@/data/frameworks";
 
 const d = data as DashboardData;
 
 export default async function Home() {
-  const [analyses, ai] = await Promise.all([listAnalyses(), loadAiInsights()]);
+  const [analyses, marketA, diagA, expA, retA, ai] = await Promise.all([
+    listAnalyses(),
+    listAnalyses({ section: "market" }),
+    listAnalyses({ section: "diagnosis" }),
+    listAnalyses({ section: "experience" }),
+    listAnalyses({ section: "retention" }),
+    loadAiInsights(),
+  ]);
   const insights = ai?.insights;
 
   return (
@@ -50,7 +42,7 @@ export default async function Home() {
           </h1>
           <p className="mt-2 max-w-3xl text-sm text-zinc-600 dark:text-zinc-400">
             Flaretech の採用マーケを「マーケティング × 顧客リテンション」の視点で整理した社内ワークスペース。
-            数字 → 市場 → 自社診断 → 体験 → 定着 の順に上から下へ読むとストーリーが繋がる構成です。
+            このホームは ① 現状の数字。下部のカードから ② 市場の地図、③ 自社診断、④ 候補者体験、⑤ リテンション、分析レポート一覧 へ。
           </p>
         </div>
         <Link
@@ -66,19 +58,6 @@ export default async function Home() {
           <span aria-hidden>→</span>
         </Link>
       </header>
-
-      <nav className="mb-2 rounded-lg border border-zinc-200 bg-white/60 p-3 text-xs text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-400">
-        <p className="mb-1 text-[10px] uppercase tracking-widest text-zinc-500">
-          このページの読み方
-        </p>
-        <ol className="list-decimal space-y-0.5 pl-5">
-          <li>① 現状の数字 ― 今の採用ファネルを数値で把握する</li>
-          <li>② 市場の地図 ― 競合・チャネルの中で自社がどこにいるか</li>
-          <li>③ 自社の位置づけ診断 ― 価値観・ワナ・コンテンツ棚卸し</li>
-          <li>④ 候補者体験とクロージング ― 応募〜内定承諾までの体験</li>
-          <li>⑤ リテンションの視点 ― 採用広報が定着にどう効くか</li>
-        </ol>
-      </nav>
 
       {/* ═══════════════════════════════════════════════════════════════════
           ① 現状の数字
@@ -122,7 +101,7 @@ export default async function Home() {
         <AiInsight insight={insights?.platforms_insight} />
       </section>
 
-      <section className="mb-6">
+      <section className="mb-10">
         <h3 className="mb-3 text-sm font-semibold tracking-wide text-zinc-600 dark:text-zinc-400">
           今週のベスト / ワースト (応募数 前週比)
         </h3>
@@ -142,115 +121,68 @@ export default async function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          ② 市場の地図
+          次のセクションへの導線
           ═══════════════════════════════════════════════════════════════ */}
-      <SectionHeading
-        step="② 市場の地図"
-        title="Know the landscape"
-        description="自社を絶対評価するのではなく、競合とチャネル動向の中で相対的にどこにいるかを見る。ワナ⑤『自社よがり』『差が伝わらない』を避けるための視点。"
-      />
+      <section className="mb-8 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+        <div className="mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-rose-600 dark:text-rose-400">
+            Next: deeper views
+          </p>
+          <h2 className="mt-0.5 text-xl font-semibold">
+            数字の背後を読み解くフレームワーク
+          </h2>
+          <p className="mt-1 max-w-3xl text-sm text-zinc-600 dark:text-zinc-400">
+            ①の数字を「なぜそうなっているのか」「次に何を動かすのか」で理解するための 4 セクション。
+            各セクションは独立したページで、関連する分析レポートも同じページにインラインで並びます。
+          </p>
+        </div>
 
-      <section className="mt-4 mb-4">
-        <Panel
-          title="評判 × 認知度 バブル分析 ― Reputation × Awareness map"
-          subtitle="横軸=認知度 (クチコミ件数) · 縦軸=口コミ評価 (5点満点) · バブル径=クチコミ件数。赤=自社、緑=競合、スレート=プレースホルダー。目標は右上『評判が良く認知率も高い企業エリア』。破線『大きな壁 (評価 4.0)』を越えないと評判ドリブンの応募は生まれない。実数値は OpenWork / ライトハウス等から取得して差し替え予定。"
-        >
-          <ReputationBubble data={reputationCompanies} />
-        </Panel>
-      </section>
-
-      <section className="mb-6">
-        <Panel
-          title="2030年の採用チャネル地図 ― Recruitment channel landscape toward 2030"
-          subtitle="採用チャネルを Traditional / Tech-augmented (検索エンジン + ATS強化) / Emerging (ダイレクト・マッチング新興) の 3 層に分類。各チャネルで Flaretech が active (使えている) / gap (使えていない) / not-applicable のどれか。2030年に向けた投資判断のベース。"
-        >
-          <ChannelMap2030 channels={recruitmentChannels2030} />
-        </Panel>
-        <AiInsight insight={insights?.market} />
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          ③ 自社の位置づけ診断
-          ═══════════════════════════════════════════════════════════════ */}
-      <SectionHeading
-        step="③ 自社の位置づけ診断"
-        title="Diagnose our positioning"
-        description="価値観をどう伝えているか／何を伝え損ねているかを 3 つの枠組みで棚卸しする。診断結果が候補者体験 (④) と定着 (⑤) に直接つながる。"
-      />
-
-      <section className="mt-4 mb-4">
-        <Panel
-          title="採用の 7 つのワナ ― 7 recruitment-marketing pitfalls"
-          subtitle="ありがちな採用広報の失敗パターン 7 つを 2 つの原因 (視点幅の説明不足 / 外部知識の欠如) に分類。各ワナに severity を付けて、Flaretech が今どこを踏んでいるかを議論する。ワナ②『社員不在』は現時点で high。"
-        >
-          <PitfallsFramework causes={pitfallCauses} />
-        </Panel>
-      </section>
-
-      <section className="mb-4">
-        <Panel
-          title="企業の価値観を正しく伝えるための 4 つのスタイル ― 4 styles for expressing company values"
-          subtitle="中央の Style（価値観）を、会社サイド (Business / Culture) と個人サイド (Job / Action) の 4 象限で分解。各象限にヒアリング項目 (例: 経営者の想い、社内でよく使われる言葉、活躍人材の特徴) を入れて、インタビューで何を聞くかを定義する。"
-        >
-          <ValueStyles styles={valueStyles} />
-        </Panel>
-      </section>
-
-      <section className="mb-6">
-        <Panel
-          title="企業イメージづくり チェックシート ― Employer brand content checklist"
-          subtitle="候補者が会社を理解するのに必要な 8 カテゴリのコンテンツ（企業・事業・社員/社風・職種・キャリア・経営・業界・選考プロセス）について、「存在するか」「情報は最新か」を可視化。Flaretech の現状評価を各行に入力済み。"
-        >
-          <BrandChecklist categories={brandChecklist} />
-        </Panel>
-        <AiInsight insight={insights?.diagnosis} />
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          ④ 候補者体験とクロージング
-          ═══════════════════════════════════════════════════════════════ */}
-      <SectionHeading
-        step="④ 候補者体験とクロージング"
-        title="Candidate experience & closing"
-        description="応募から内定承諾までの候補者体験を 2 つの枠組みで点検する。③の棚卸し結果がここで効いてくる（例: コンテンツ不足 → フィット感の欠如 → 内定辞退）。"
-      />
-
-      <section className="mt-4 mb-4">
-        <Panel
-          title="候補者エクスペリエンス スコアカード ― Candidate Experience scorecard"
-          subtitle="応募プロセス・コミュニケーション・面接・オファー・オンボーディング・技術活用・社内文化紹介・フィードバック の 8 ステージで、良い候補者体験にどれだけ近づけているかを 0-5 で採点。未計測は自分で応募してみる／候補者ヒアリング／社員インタビューで埋めていく。"
-        >
-          <CandidateExperience categories={candidateExperience} />
-        </Panel>
-      </section>
-
-      <section className="mb-6">
-        <Panel
-          title="内定辞退へのアプローチ法 ― Offer decline risk factors"
-          subtitle="内定辞退を引き起こす 4 つのドライバー (競合オファー / フィット感欠如 / オンボーディング不透明 / プロセス中のコミュ不足) に対する Flaretech のリスクと仮説。文化フィットのリスクはワナ②『社員不在』と直結し high と評価済み。"
-        >
-          <OfferDecline reasons={offerDeclineReasons} />
-        </Panel>
-        <AiInsight insight={insights?.experience} />
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          ⑤ リテンションの視点
-          ═══════════════════════════════════════════════════════════════ */}
-      <SectionHeading
-        step="⑤ リテンションの視点"
-        title="Retention lens"
-        description="採用広報は入社して終わりではなく、定着まで効くという考え方。採用フェーズのアウトプットが、育成・配置・評価・報酬・代謝 の 5 人事課題を間接的に下支えする。"
-      />
-
-      <section className="mt-4 mb-6">
-        <Panel
-          title="企業イメージがすべてを癒す ― How employer brand solves HR challenges"
-          subtitle="企業イメージが強い／弱い でそれぞれ 5 つの人事課題にどう影響するかを並べた枠組み。「強いイメージ」列が採用広報の到達目標、「弱いイメージ」列が放置した場合のリスク。"
-        >
-          <RetentionFramework challenges={retentionChallenges} />
-        </Panel>
-        <AiInsight insight={insights?.retention} />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <SectionCard
+            href="/market"
+            number="②"
+            titleEn="Know the landscape"
+            title="市場の地図"
+            description="2030 採用チャネル地図 + 評判×認知度バブル。競合とチャネル動向の中で Flaretech の立ち位置を相対的に見る。"
+            preview={insights?.market?.next_move}
+            analysisCount={marketA.length}
+          />
+          <SectionCard
+            href="/diagnosis"
+            number="③"
+            titleEn="Diagnose our positioning"
+            title="自社の位置づけ診断"
+            description="採用の 7 つのワナ + 4 つの価値観スタイル + 企業イメージ 8 カテゴリチェック。価値観をどう伝え損ねているかを棚卸し。"
+            preview={insights?.diagnosis?.next_move}
+            analysisCount={diagA.length}
+          />
+          <SectionCard
+            href="/experience"
+            number="④"
+            titleEn="Candidate experience & closing"
+            title="候補者体験とクロージング"
+            description="応募から内定承諾までの 8 ステージ CX スコアカード + 内定辞退 4 ドライバー。③の棚卸し結果がここで効く。"
+            preview={insights?.experience?.next_move}
+            analysisCount={expA.length}
+          />
+          <SectionCard
+            href="/retention"
+            number="⑤"
+            titleEn="Retention lens"
+            title="リテンションの視点"
+            description="採用広報が育成・配置・評価・報酬・代謝 の 5 HR 課題に間接的に効く枠組み。企業イメージが解決の鍵。"
+            preview={insights?.retention?.next_move}
+            analysisCount={retA.length}
+          />
+          <SectionCard
+            href="/analyses"
+            number="🔍"
+            titleEn="Deep-dive analyses"
+            title="分析レポート一覧"
+            description="日付ごとの詳細分析。特定の問いへの独立した回答集。各レポートは所属するセクションにも紐づきます。"
+            analysisCount={analyses.length}
+          />
+        </div>
       </section>
 
       <footer className="border-t border-zinc-200 pt-6 text-xs text-zinc-500 dark:border-zinc-800">

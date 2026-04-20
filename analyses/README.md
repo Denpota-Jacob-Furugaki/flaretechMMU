@@ -16,8 +16,9 @@ Examples:
 ```markdown
 # <Title>
 
-**Date:** 2026-04-20
-**Data snapshot:** `data/snapshots/2026-04-20/`
+**日付:** 2026-04-20
+**関連セクション:** market   # status | market | diagnosis | experience | retention
+**データスナップショット:** `data/snapshots/2026-04-20/`
 **Author:** <you>
 
 ## Question

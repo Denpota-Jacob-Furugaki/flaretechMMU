@@ -3,11 +3,35 @@ import path from "node:path";
 
 const ANALYSES_DIR = path.join(process.cwd(), "content", "analyses");
 
+export type SectionKey =
+  | "status"
+  | "market"
+  | "diagnosis"
+  | "experience"
+  | "retention";
+
+export const SECTION_LABELS: Record<SectionKey, string> = {
+  status: "現状の数字",
+  market: "市場の地図",
+  diagnosis: "自社の位置づけ診断",
+  experience: "候補者体験とクロージング",
+  retention: "リテンションの視点",
+};
+
+const VALID_SECTIONS: SectionKey[] = [
+  "status",
+  "market",
+  "diagnosis",
+  "experience",
+  "retention",
+];
+
 export interface AnalysisMeta {
   slug: string;
   title: string;
   date: string | null;
   summary: string | null;
+  relatesTo: SectionKey | null;
 }
 
 function extractTitle(md: string): string {
@@ -16,20 +40,36 @@ function extractTitle(md: string): string {
 }
 
 function extractDate(md: string): string | null {
-  // Accepts either `**日付:**` or `**Date:**` followed by a YYYY-MM-DD.
   const m = md.match(/\*\*(?:日付|Date)[:：]\*\*\s*(\S+)/);
   return m ? m[1].trim() : null;
 }
 
 function extractSummary(md: string): string | null {
-  // First paragraph under the first `##` heading (typically 問い / Question /
-  // 概要). Falls back to null if not found.
   const q = md.match(/^##\s+.+\n+([^\n#][\s\S]*?)(?:\n\n|$)/m);
   if (q) return q[1].replace(/\s+/g, " ").trim();
   return null;
 }
 
-export async function listAnalyses(): Promise<AnalysisMeta[]> {
+function extractRelatesTo(md: string): SectionKey | null {
+  const m = md.match(/\*\*(?:関連セクション|Relates to)[:：]\*\*\s*(\S+)/);
+  if (!m) return null;
+  const raw = m[1].trim().toLowerCase();
+  return (VALID_SECTIONS as string[]).includes(raw) ? (raw as SectionKey) : null;
+}
+
+function buildMeta(slug: string, body: string): AnalysisMeta {
+  return {
+    slug,
+    title: extractTitle(body),
+    date: extractDate(body),
+    summary: extractSummary(body),
+    relatesTo: extractRelatesTo(body),
+  };
+}
+
+export async function listAnalyses(
+  options: { section?: SectionKey } = {},
+): Promise<AnalysisMeta[]> {
   let files: string[];
   try {
     files = await readdir(ANALYSES_DIR);
@@ -41,15 +81,13 @@ export async function listAnalyses(): Promise<AnalysisMeta[]> {
   for (const name of mds) {
     const slug = name.replace(/\.md$/, "");
     const body = await readFile(path.join(ANALYSES_DIR, name), "utf-8");
-    out.push({
-      slug,
-      title: extractTitle(body),
-      date: extractDate(body),
-      summary: extractSummary(body),
-    });
+    out.push(buildMeta(slug, body));
   }
-  out.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
-  return out;
+  const filtered = options.section
+    ? out.filter((a) => a.relatesTo === options.section)
+    : out;
+  filtered.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+  return filtered;
 }
 
 export async function readAnalysis(slug: string): Promise<{
@@ -58,15 +96,7 @@ export async function readAnalysis(slug: string): Promise<{
 } | null> {
   try {
     const body = await readFile(path.join(ANALYSES_DIR, `${slug}.md`), "utf-8");
-    return {
-      meta: {
-        slug,
-        title: extractTitle(body),
-        date: extractDate(body),
-        summary: extractSummary(body),
-      },
-      body,
-    };
+    return { meta: buildMeta(slug, body), body };
   } catch {
     return null;
   }
