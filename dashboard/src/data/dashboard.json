@@ -1,0 +1,367 @@
+{
+  "title": "FLARETECH｜経営向け 週次サマリー（今週 vs 先週 vs 先々週）",
+  "period": "📅 今週: 2026/04/10 〜 2026/04/16　｜　先週: 2026/04/03 〜 2026/04/09　｜　先々週: 2026/03/27 〜 2026/04/02　（「今週」= 応募30件以上で最新の週を自動選択）",
+  "kpis": [
+    {
+      "name": "応募数",
+      "isRate": false,
+      "current": 178.0,
+      "lastWeek": 184.0,
+      "twoWeeksAgo": 122.0,
+      "deltaWoW": -6.0
+    },
+    {
+      "name": "書類通過数",
+      "isRate": false,
+      "current": 24.0,
+      "lastWeek": 33.0,
+      "twoWeeksAgo": 14.0,
+      "deltaWoW": -9.0
+    },
+    {
+      "name": "書類通過率",
+      "isRate": true,
+      "current": 0.1348314606741573,
+      "lastWeek": 0.179,
+      "twoWeeksAgo": 0.115,
+      "deltaWoW": -4.5
+    },
+    {
+      "name": "内定数",
+      "isRate": false,
+      "current": 0.0,
+      "lastWeek": 2.0,
+      "twoWeeksAgo": 1.0,
+      "deltaWoW": -2.0
+    },
+    {
+      "name": "内定承諾数",
+      "isRate": false,
+      "current": 0.0,
+      "lastWeek": 0.0,
+      "twoWeeksAgo": 0.0,
+      "deltaWoW": 0.0
+    }
+  ],
+  "platforms": [
+    {
+      "name": "Indeed（エンジニア）",
+      "apps": {
+        "current": 88.0,
+        "lastWeek": 120.0,
+        "twoWeeksAgo": 62.0,
+        "delta": -32.0
+      },
+      "passRate": {
+        "current": 0.045,
+        "lastWeek": 0.142,
+        "twoWeeksAgo": 0.081,
+        "delta": -9.7
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 0.0
+      }
+    },
+    {
+      "name": "doda",
+      "apps": {
+        "current": 51.0,
+        "lastWeek": 35.0,
+        "twoWeeksAgo": 42.0,
+        "delta": 16.0
+      },
+      "passRate": {
+        "current": 0.255,
+        "lastWeek": 0.229,
+        "twoWeeksAgo": 0.167,
+        "delta": 2.6
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 1.0,
+        "twoWeeksAgo": 0.0
+      }
+    },
+    {
+      "name": "Wantedly",
+      "apps": {
+        "current": 14.0,
+        "lastWeek": 12.0,
+        "twoWeeksAgo": 7.0,
+        "delta": 2.0
+      },
+      "passRate": {
+        "current": 0.071,
+        "lastWeek": 0.167,
+        "twoWeeksAgo": 0.0,
+        "delta": -9.6
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 0.0
+      }
+    },
+    {
+      "name": "Indeed（管理部）",
+      "apps": {
+        "current": 9.0,
+        "lastWeek": 6.0,
+        "twoWeeksAgo": 1.0,
+        "delta": 3.0
+      },
+      "passRate": {
+        "current": 0.222,
+        "lastWeek": 0.333,
+        "twoWeeksAgo": 0.0,
+        "delta": -11.1
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 0.0
+      }
+    },
+    {
+      "name": "type",
+      "apps": {
+        "current": 7.0,
+        "lastWeek": 5.0,
+        "twoWeeksAgo": 4.0,
+        "delta": 2.0
+      },
+      "passRate": {
+        "current": 0.143,
+        "lastWeek": 0.4,
+        "twoWeeksAgo": 0.5,
+        "delta": -25.7
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 1.0
+      }
+    },
+    {
+      "name": "エン転職",
+      "apps": {
+        "current": 5.0,
+        "lastWeek": 4.0,
+        "twoWeeksAgo": 4.0,
+        "delta": 1.0
+      },
+      "passRate": {
+        "current": 0.4,
+        "lastWeek": 0.25,
+        "twoWeeksAgo": 0.0,
+        "delta": 15.0
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 1.0,
+        "twoWeeksAgo": 0.0
+      }
+    },
+    {
+      "name": "engage",
+      "apps": {
+        "current": 3.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 1.0,
+        "delta": 3.0
+      },
+      "passRate": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 0.0,
+        "delta": 0.0
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 0.0
+      }
+    },
+    {
+      "name": "自社サイト",
+      "apps": {
+        "current": 1.0,
+        "lastWeek": 2.0,
+        "twoWeeksAgo": 1.0,
+        "delta": -1.0
+      },
+      "passRate": {
+        "current": 1.0,
+        "lastWeek": 0.5,
+        "twoWeeksAgo": 0.0,
+        "delta": 50.0
+      },
+      "offers": {
+        "current": 0.0,
+        "lastWeek": 0.0,
+        "twoWeeksAgo": 0.0
+      }
+    }
+  ],
+  "total": {
+    "name": "全媒体 合計",
+    "apps": {
+      "current": 178.0,
+      "lastWeek": 184.0,
+      "twoWeeksAgo": 122.0,
+      "delta": -6.0
+    },
+    "passRate": {
+      "current": 0.1348314606741573,
+      "lastWeek": 0.1793478260869565,
+      "twoWeeksAgo": 0.1147540983606557,
+      "delta": -4.5
+    },
+    "offers": {
+      "current": 0.0,
+      "lastWeek": 2.0,
+      "twoWeeksAgo": 1.0
+    }
+  },
+  "weekly": [
+    {
+      "week": "01/02",
+      "applications": 76.0,
+      "passRate": 0.3815789473684211,
+      "offers": 7.0
+    },
+    {
+      "week": "01/09",
+      "applications": 95.0,
+      "passRate": 0.1684210526315789,
+      "offers": 1.0
+    },
+    {
+      "week": "01/16",
+      "applications": 116.0,
+      "passRate": 0.2586206896551724,
+      "offers": 6.0
+    },
+    {
+      "week": "01/23",
+      "applications": 139.0,
+      "passRate": 0.158273381294964,
+      "offers": 4.0
+    },
+    {
+      "week": "01/30",
+      "applications": 158.0,
+      "passRate": 0.2405063291139241,
+      "offers": 3.0
+    },
+    {
+      "week": "02/06",
+      "applications": 171.0,
+      "passRate": 0.2690058479532164,
+      "offers": 6.0
+    },
+    {
+      "week": "02/13",
+      "applications": 177.0,
+      "passRate": 0.288135593220339,
+      "offers": 2.0
+    },
+    {
+      "week": "02/20",
+      "applications": 115.0,
+      "passRate": 0.2347826086956522,
+      "offers": 3.0
+    },
+    {
+      "week": "02/27",
+      "applications": 180.0,
+      "passRate": 0.2888888888888889,
+      "offers": 3.0
+    },
+    {
+      "week": "03/06",
+      "applications": 221.0,
+      "passRate": 0.1719457013574661,
+      "offers": 5.0
+    },
+    {
+      "week": "03/13",
+      "applications": 196.0,
+      "passRate": 0.1479591836734694,
+      "offers": 3.0
+    },
+    {
+      "week": "03/20",
+      "applications": 184.0,
+      "passRate": 0.1195652173913044,
+      "offers": 3.0
+    },
+    {
+      "week": "03/27",
+      "applications": 122.0,
+      "passRate": 0.1147540983606557,
+      "offers": 1.0
+    },
+    {
+      "week": "04/03",
+      "applications": 184.0,
+      "passRate": 0.1793478260869565,
+      "offers": 2.0
+    },
+    {
+      "week": "04/10",
+      "applications": 178.0,
+      "passRate": 0.1348314606741573,
+      "offers": 0.0
+    },
+    {
+      "week": "04/17",
+      "applications": 18.0,
+      "passRate": 0.05555555555555555,
+      "offers": 0.0
+    }
+  ],
+  "best": [
+    {
+      "name": "doda",
+      "current": 51.0,
+      "lastWeek": 35.0,
+      "delta": 16.0
+    },
+    {
+      "name": "Indeed（管理部）",
+      "current": 9.0,
+      "lastWeek": 6.0,
+      "delta": 3.0
+    },
+    {
+      "name": "engage",
+      "current": 3.0,
+      "lastWeek": 0.0,
+      "delta": 3.0
+    }
+  ],
+  "worst": [
+    {
+      "name": "Indeed（エンジニア）",
+      "current": 88.0,
+      "lastWeek": 120.0,
+      "delta": -32.0
+    },
+    {
+      "name": "自社サイト",
+      "current": 1.0,
+      "lastWeek": 2.0,
+      "delta": -1.0
+    },
+    {
+      "name": "エン転職",
+      "current": 5.0,
+      "lastWeek": 4.0,
+      "delta": 1.0
+    }
+  ],
+  "sourceFile": "①_経営サマリー（WoW）.csv"
+}
