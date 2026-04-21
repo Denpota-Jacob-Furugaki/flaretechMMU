@@ -2,6 +2,8 @@
 *.pdf
 *.pptx
 *.docx
+src/Meeting Transcript/
+src/Branding/
 data/raw/
 data/snapshots/
 __pycache__/
