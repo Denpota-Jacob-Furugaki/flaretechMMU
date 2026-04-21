@@ -68,13 +68,19 @@ def export_workbook(xlsx_path: Path) -> list[tuple[str, int, int]]:
 
 
 def discover() -> list[Path]:
-    """Find xlsx files to process. `src/` wins over root on name collision."""
+    """Find xlsx files to process. `src/` wins over root on name collision.
+    Recurses into src/ subdirectories (e.g. src/Branding/)."""
     seen: dict[str, Path] = {}
-    # root first, src/ second, so src/ overrides
-    for base in (ROOT, SRC):
-        if not base.exists():
-            continue
-        for xlsx in sorted(base.glob("*.xlsx")):
+    # root first (non-recursive), then src/ recursive — so src/ overrides
+    if ROOT.exists():
+        for xlsx in sorted(ROOT.glob("*.xlsx")):
+            if xlsx.name.startswith("~$"):
+                continue
+            if DUPE_SUFFIX_RE.search(xlsx.stem):
+                continue
+            seen[xlsx.name] = xlsx
+    if SRC.exists():
+        for xlsx in sorted(SRC.rglob("*.xlsx")):
             if xlsx.name.startswith("~$"):
                 continue
             if DUPE_SUFFIX_RE.search(xlsx.stem):

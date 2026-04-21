@@ -11,11 +11,20 @@ import {
   ChannelQualityRow,
 } from "@/components/ChannelQuality";
 import {
+  ChannelCostEffectiveness,
+  ChannelCostData,
+} from "@/components/ChannelCostEffectiveness";
+import {
+  CostTimeSeries,
+  CostTimePoint,
+} from "@/components/CostTimeSeries";
+import {
   recruitmentChannels2030,
   reputationCompanies,
 } from "@/data/frameworks";
 import { loadAiInsights } from "@/lib/ai-insights";
 import channelQualityData from "@/data/channel_quality.json";
+import channelCostData from "@/data/channel_cost_effectiveness.json";
 
 export const metadata = {
   title: "② 市場の地図 | Flaretech 採用ダッシュボード",
@@ -54,10 +63,44 @@ export default async function MarketPage() {
         </Panel>
       </section>
 
+      <section className="mb-4">
+        <Panel
+          title="④ 媒体別 費用対効果 ― Cost-effectiveness (2026 YTD)"
+          subtitle="クライアント提供の費用データ (Slack 2026-04-21 受領) に基づく、媒体別の応募単価 / 書類通過単価 / 内定単価 / 承諾単価。色は列ごとの相対評価 (🟢 最良 / 🔴 最悪)。最下段は全媒体合計。承諾単価で並べると『1 承諾あたりコスト』で媒体をランキング可能。"
+        >
+          <ChannelCostEffectiveness data={channelCostData as unknown as ChannelCostData} />
+        </Panel>
+      </section>
+
+      <section className="mb-6">
+        <Panel
+          title="⑤ 全媒体 費用対効果 ― 月次・週次トレンド"
+          subtitle="全媒体合計で見た費用 vs 応募 vs 承諾 の時系列。月次/週次切り替え可能。青バー=応募数、赤バー=費用の相対量。費用は月 ¥1.0〜1.5M で推移、04月は 3/4 途中のため減少傾向に見える点に注意。"
+        >
+          <CostTimeSeries
+            monthly={
+              (channelCostData.monthly as unknown as Array<{
+                month: string;
+              } & Omit<CostTimePoint, "period">>)
+                .map((m) => ({ ...m, period: m.month })) as CostTimePoint[]
+            }
+            weekly={
+              (channelCostData.weekly as unknown as Array<{
+                week: string;
+              } & Omit<CostTimePoint, "period">>)
+                .map((w) => ({ ...w, period: w.week })) as CostTimePoint[]
+            }
+            total={
+              { period: "合計", ...channelCostData.total } as unknown as CostTimePoint
+            }
+          />
+        </Panel>
+      </section>
+
       <section className="mb-6">
         <Panel
           title="チャネル別 品質ランキング ― Quality by channel (全履歴)"
-          subtitle="採用蓄積シート 2023 年以降の全履歴から、各チャネルの量 (応募数) と質 (書類通過率 / 1次通過率 / 内定率 / 承諾率) を横並びで比較。列ヘッダーをクリックで並べ替え。初回応募日 / 直近応募日で稼働期間もわかる。"
+          subtitle="採用蓄積シート 2023 年以降の全履歴から、各チャネルの量 (応募数) と質 (書類通過率 / 1次通過率 / 内定率 / 承諾率) を横並びで比較。上の ④ 費用対効果は 2026 YTD のみ、こちらは全期間のファネル率。"
         >
           <ChannelQuality
             channels={channelQualityData.channels as ChannelQualityRow[]}

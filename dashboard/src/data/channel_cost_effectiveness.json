@@ -1,0 +1,140 @@
+{
+  "period": "2026-01-02〜2026-04-17",
+  "periodLabel": "16週・106日",
+  "source": "クライアント提供 (Slack 2026-04-21)",
+  "channels": [
+    {
+      "name": "doda",
+      "cost": 984286,
+      "costNote": "78万/12週 × 1.26サイクル（106日継続）",
+      "applications": 809,
+      "applicationCost": 1217,
+      "docPass": 174,
+      "docPassCost": 5657,
+      "offers": 21,
+      "offerCost": 46871,
+      "accepts": 5,
+      "acceptCost": 196857
+    },
+    {
+      "name": "エン転職",
+      "cost": 1230357,
+      "costNote": "65万/8週 × 1.89サイクル（106日継続）",
+      "applications": 182,
+      "applicationCost": 6760,
+      "docPass": 42,
+      "docPassCost": 29294,
+      "offers": 6,
+      "offerCost": 205060,
+      "accepts": 0,
+      "acceptCost": null
+    },
+    {
+      "name": "type",
+      "cost": 946429,
+      "costNote": "75万/12週 × 1.26サイクル（106日継続）",
+      "applications": 50,
+      "applicationCost": 18929,
+      "docPass": 29,
+      "docPassCost": 32635,
+      "offers": 11,
+      "offerCost": 86039,
+      "accepts": 0,
+      "acceptCost": null
+    },
+    {
+      "name": "engage",
+      "cost": 210000,
+      "costNote": "3,500円/日 × 2求人 × 30日",
+      "applications": 13,
+      "applicationCost": 16154,
+      "docPass": 0,
+      "docPassCost": null,
+      "offers": 0,
+      "offerCost": null,
+      "accepts": 0,
+      "acceptCost": null
+    },
+    {
+      "name": "Indeed",
+      "cost": 1339685,
+      "costNote": "Indeed 求人CSV合計費用を充当",
+      "applications": 1009,
+      "applicationCost": 1328,
+      "docPass": 171,
+      "docPassCost": 7834,
+      "offers": 6,
+      "offerCost": 223281,
+      "accepts": 2,
+      "acceptCost": 669842
+    },
+    {
+      "name": "Wantedly",
+      "cost": 516667,
+      "costNote": "月額5万×約3.5ヶ月 + 広告34万（01/23〜4週のみ）",
+      "applications": 240,
+      "applicationCost": 2153,
+      "docPass": 49,
+      "docPassCost": 10544,
+      "offers": 4,
+      "offerCost": 129167,
+      "accepts": 1,
+      "acceptCost": 516667
+    },
+    {
+      "name": "自社サイト",
+      "cost": 0,
+      "costNote": "費用なし",
+      "applications": 27,
+      "applicationCost": null,
+      "docPass": 7,
+      "docPassCost": null,
+      "offers": 1,
+      "offerCost": null,
+      "accepts": 0,
+      "acceptCost": null
+    }
+  ],
+  "total": {
+    "cost": 5227424,
+    "costNote": "費用計上分のみ (レバテック / Green / AMBI 等の成果報酬型スカウト媒体は未計上)",
+    "applications": 2330,
+    "applicationCost": 2244,
+    "docPass": 472,
+    "docPassCost": 11075,
+    "offers": 49,
+    "offerCost": 106682,
+    "accepts": 8,
+    "acceptCost": 653428
+  },
+  "monthly": [
+    { "month": "2026-01", "cost": 1209119, "applications": 584, "applicationCost": 2070, "docPass": 135, "docPassCost": 8956, "offers": 21, "offerCost": 57577, "accepts": 2, "acceptCost": 604559 },
+    { "month": "2026-02", "cost": 1511629, "applications": 643, "applicationCost": 2351, "docPass": 176, "docPassCost": 8589, "offers": 14, "offerCost": 107973, "accepts": 3, "acceptCost": 503876 },
+    { "month": "2026-03", "cost": 1498593, "applications": 723, "applicationCost": 2073, "docPass": 103, "docPassCost": 14549, "offers": 12, "offerCost": 124883, "accepts": 3, "acceptCost": 499531 },
+    { "month": "2026-04", "cost": 1008083, "applications": 380, "applicationCost": 2653, "docPass": 58, "docPassCost": 17381, "offers": 2, "offerCost": 504041, "accepts": 0, "acceptCost": null }
+  ],
+  "weekly": [
+    { "week": "01/02〜01/08", "cost": 220417, "applications": 76, "applicationCost": 2900, "docPass": 29, "docPassCost": 7601, "offers": 7, "offerCost": 31488, "accepts": 1, "acceptCost": 220417 },
+    { "week": "01/09〜01/15", "cost": 234509, "applications": 95, "applicationCost": 2469, "docPass": 16, "docPassCost": 14657, "offers": 1, "offerCost": 234509, "accepts": 0, "acceptCost": null },
+    { "week": "01/16〜01/22", "cost": 282071, "applications": 116, "applicationCost": 2432, "docPass": 30, "docPassCost": 9402, "offers": 6, "offerCost": 47012, "accepts": 1, "acceptCost": 282071 },
+    { "week": "01/23〜01/29", "cost": 365334, "applications": 139, "applicationCost": 2628, "docPass": 22, "docPassCost": 16606, "offers": 4, "offerCost": 91333, "accepts": 0, "acceptCost": null },
+    { "week": "01/30〜02/05", "cost": 373980, "applications": 158, "applicationCost": 2367, "docPass": 38, "docPassCost": 9842, "offers": 3, "offerCost": 124660, "accepts": 0, "acceptCost": null },
+    { "week": "02/06〜02/12", "cost": 465545, "applications": 171, "applicationCost": 2722, "docPass": 46, "docPassCost": 10121, "offers": 6, "offerCost": 77591, "accepts": 1, "acceptCost": 465545 },
+    { "week": "02/13〜02/19", "cost": 412039, "applications": 177, "applicationCost": 2328, "docPass": 51, "docPassCost": 8079, "offers": 2, "offerCost": 206019, "accepts": 1, "acceptCost": 412039 },
+    { "week": "02/20〜02/26", "cost": 300789, "applications": 115, "applicationCost": 2616, "docPass": 27, "docPassCost": 11140, "offers": 3, "offerCost": 100263, "accepts": 1, "acceptCost": 300789 },
+    { "week": "02/27〜03/05", "cost": 356185, "applications": 180, "applicationCost": 1979, "docPass": 52, "docPassCost": 6850, "offers": 3, "offerCost": 118728, "accepts": 0, "acceptCost": null },
+    { "week": "03/06〜03/12", "cost": 338390, "applications": 221, "applicationCost": 1531, "docPass": 38, "docPassCost": 8905, "offers": 5, "offerCost": 67678, "accepts": 1, "acceptCost": 338390 },
+    { "week": "03/13〜03/19", "cost": 319267, "applications": 196, "applicationCost": 1629, "docPass": 29, "docPassCost": 11009, "offers": 3, "offerCost": 106422, "accepts": 0, "acceptCost": null },
+    { "week": "03/20〜03/26", "cost": 338366, "applications": 184, "applicationCost": 1839, "docPass": 22, "docPassCost": 15380, "offers": 3, "offerCost": 112789, "accepts": 2, "acceptCost": 169183 },
+    { "week": "03/27〜04/02", "cost": 352397, "applications": 122, "applicationCost": 2888, "docPass": 14, "docPassCost": 25171, "offers": 1, "offerCost": 352397, "accepts": 0, "acceptCost": null },
+    { "week": "04/03〜04/09", "cost": 404055, "applications": 184, "applicationCost": 2196, "docPass": 33, "docPassCost": 12244, "offers": 2, "offerCost": 202027, "accepts": 0, "acceptCost": null },
+    { "week": "04/10〜04/16", "cost": 416234, "applications": 178, "applicationCost": 2338, "docPass": 24, "docPassCost": 17343, "offers": 0, "offerCost": null, "accepts": 0, "acceptCost": null },
+    { "week": "04/17〜04/23", "cost": 47850, "applications": 18, "applicationCost": 2658, "docPass": 1, "docPassCost": 47850, "offers": 0, "offerCost": null, "accepts": 0, "acceptCost": null }
+  ],
+  "caveats": [
+    "レバテック / Green / AMBI 等の成果報酬型スカウト媒体の費用はスカウトチームに別途確認中。未計上。",
+    "doda / type / エン転職 は別会社運用のため、費用詳細を運用代行会社に確認中。",
+    "04/17〜04/23 は週の途中スナップショットの可能性あり (¥47,850 は他週の 1/7 程度)。",
+    "承諾は選考ラグにより過小評価の可能性あり — 04月はまだ承諾 0 だが、3月投入の候補者が承諾してくる時差あり。"
+  ]
+}
