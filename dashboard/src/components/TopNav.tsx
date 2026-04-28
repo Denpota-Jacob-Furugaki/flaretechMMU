@@ -4,19 +4,35 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const ROUTES = [
-  { href: "/", label: "ホーム", number: "①", match: "exact" as const },
-  { href: "/market", label: "市場", number: "②", match: "exact" as const },
-  { href: "/diagnosis", label: "診断", number: "③", match: "exact" as const },
-  { href: "/experience", label: "体験", number: "④", match: "exact" as const },
-  { href: "/retention", label: "定着", number: "⑤", match: "exact" as const },
-  { href: "/analyses", label: "分析", number: "🔍", match: "prefix" as const },
+  { href: "/", label: "ホーム", icon: "🏠", match: "exact" as const },
+  { href: "/recruiting", label: "Recruiting", icon: "🎯", match: "prefix" as const },
+  { href: "/branding", label: "Branding", icon: "✨", match: "exact" as const },
+  { href: "/marketing", label: "Marketing", icon: "📣", match: "exact" as const },
+];
+
+// Recruiting配下扱いにするサブパス（ヘッダーのアクティブ状態を Recruiting に向ける）
+const RECRUITING_SUBPATHS = [
+  "/market",
+  "/diagnosis",
+  "/experience",
+  "/retention",
+  "/analyses",
 ];
 
 export function TopNav() {
   const pathname = usePathname();
   const isActive = (href: string, match: "exact" | "prefix") => {
     if (match === "exact") return pathname === href;
-    return pathname === href || pathname.startsWith(`${href}/`);
+    if (match === "prefix") {
+      if (pathname === href || pathname.startsWith(`${href}/`)) return true;
+      // /market などの旧サブページも Recruiting にハイライトを当てる
+      if (href === "/recruiting") {
+        return RECRUITING_SUBPATHS.some(
+          (p) => pathname === p || pathname.startsWith(`${p}/`),
+        );
+      }
+    }
+    return false;
   };
 
   return (
@@ -46,7 +62,7 @@ export function TopNav() {
                     : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
                 }`}
               >
-                <span className="mr-1">{r.number}</span>
+                <span className="mr-1">{r.icon}</span>
                 {r.label}
               </Link>
             );

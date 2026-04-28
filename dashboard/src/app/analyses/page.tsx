@@ -8,8 +8,8 @@ export default async function AnalysesIndex() {
     <main className="mx-auto max-w-4xl px-6 py-8 sm:py-10">
       <header className="mb-8">
         <div className="text-xs font-medium uppercase tracking-wider text-zinc-500">
-          <Link href="/" className="hover:text-zinc-700 dark:hover:text-zinc-300">
-            ← ダッシュボード
+          <Link href="/recruiting" className="hover:text-zinc-700 dark:hover:text-zinc-300">
+            ← Recruiting
           </Link>
         </div>
         <h1 className="mt-2 text-2xl font-semibold sm:text-3xl">分析レポート</h1>

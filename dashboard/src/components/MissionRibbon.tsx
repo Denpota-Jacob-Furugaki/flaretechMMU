@@ -10,7 +10,7 @@ export function MissionRibbon() {
 
   return (
     <Link
-      href="/"
+      href="/recruiting"
       className="mb-4 block rounded-lg border border-rose-200 bg-rose-50/50 px-4 py-2 text-xs transition hover:border-rose-300 hover:bg-rose-50 dark:border-rose-900/50 dark:bg-rose-950/20 dark:hover:border-rose-800 dark:hover:bg-rose-950/30"
     >
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
