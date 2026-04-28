@@ -10,7 +10,7 @@ const SECTION_ORDER: SectionKey[] = [
 ];
 
 const SECTION_ROUTE: Record<SectionKey, string> = {
-  status: "/",
+  status: "/recruiting",
   market: "/market",
   diagnosis: "/diagnosis",
   experience: "/experience",
@@ -34,10 +34,10 @@ export function SectionNav({ current }: { current: SectionKey }) {
     <nav className="mb-6 flex flex-col gap-3 border-b border-zinc-200 pb-4 text-xs dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex flex-wrap items-center gap-2 text-zinc-600 dark:text-zinc-400">
         <Link
-          href="/"
+          href="/recruiting"
           className="rounded-md border border-zinc-200 bg-white px-2.5 py-1 font-medium shadow-sm hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 dark:hover:text-zinc-100"
         >
-          ← ダッシュボード
+          ← Recruiting
         </Link>
         <span className="text-zinc-400">/</span>
         <span className="font-medium text-zinc-700 dark:text-zinc-300">
